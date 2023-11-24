@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag and Drop Example</title>
+  <style>
+    /* Style for the drop zone */
+    .drop-zone {
+      width: 35%;
+      height: 150px;
+      border: 2px dashed #ccc;
+      margin: 20px;
+      text-align: center;
+      line-height: 200px;
+    }
+
+    /* Style for the draggable image */
+    #draggable-image {
+      width: 100px;
+      cursor: grab;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Draggable Image -->
+  <img id="draggable-image" src="./image-removebg-preview (1).png" alt="Draggable Image" draggable="true" ondragstart="drag(event)">
+
+  <!-- Drop Zone -->
+  <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+    Drop Image Here
+  </div>
+
+  <script>
+    // Function to handle the drag event for the image
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    // Function to handle the drop event for the drop zone
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      var draggedImage = document.getElementById(data);
+      var dropZone = document.querySelector(".drop-zone");
+
+      // Append the dragged image to the drop zone
+      dropZone.innerHTML = ""; // Clear previous content
+      dropZone.appendChild(draggedImage);
+    }
+
+    // Function to allow the drop event
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+  </script>
+
+</body>
+</html>

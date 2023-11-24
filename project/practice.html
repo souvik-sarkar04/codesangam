@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Example</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #ccc;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .draggable {
+            cursor: pointer;
+            user-drag: element;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div id="box1" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+        Box 1
+    </div>
+    <div id="box2" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+        Box 2
+    </div>
+</div>
+
+<div id="navigation">
+    <!-- Add images to the navigation bar -->
+    <img src="image1.jpg" class="draggable" draggable="true" ondragstart="drag(event)">
+    <img src="image2.jpg" class="draggable" draggable="true" ondragstart="drag(event)">
+    <!-- Add more images as needed -->
+</div>
+
+<script>
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drag(event) {
+        event.dataTransfer.setData("text", event.target.src);
+    }
+
+    function drop(event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        var img = new Image();
+        img.src = data;
+        event.target.appendChild(img);
+    }
+</script>
+
+</body>
+</html>

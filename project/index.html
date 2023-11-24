@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>hello
+    </title>
+    <link rel="stylesheet" href="procss.css">
+    <style>
+        #dd{
+            margin-top: -50%;
+        }
+        /* Add your custom styles here */
+        #imageCarousel {
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            margin-top: -10%;
+        }
+
+        .carousel-inner img {
+            margin-left: 25%;
+            width: 336px;
+            border: 2px solid;
+            border-radius:10% ;
+            height: 300px;
+            cursor: grab;
+        }
+
+        #dropArea {
+            width: 20%;
+            height: auto;
+            border: 2px dashed #0e0d0d;
+            margin-top: 26px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 42%;
+        }
+        #dropArea2 {
+            width: 20%;
+            height: auto;
+            border: 2px dashed #0e0d0d;
+            margin-top: 26px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left:42%;
+        }
+
+        #dropArea img {
+            max-width: 90%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        #prevBtn,
+        #nextBtn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px;
+            z-index: 2;
+        }
+
+        #prevBtn {
+            left: 10px;
+        }
+
+        #nextBtn {
+            right: 10px;
+        }
+        .try{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class='conatiner'>
+        <div id="b1" class="row">
+            <div class="col" id="col1">
+                <img src="./image-removebg-preview (1).png" height="210px"  alt="not found">
+            </div>
+            <div class="col" id="col2">
+                पहनावा PORTAL
+            </div>
+
+        </div>
+    </div>
+        <div style="padding: 2%;" class="b2">
+        <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><img src="./image-removebg-preview (1).png" id="logo" height="50px"  alt="not found"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./my.html">Home <span class="sr-only"></span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+                <form action="backend.php" id="box" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="search any brand" aria-label="Search">
+                    
+                    <button id="button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+            
+            
+        </div>
+    <div id="dd">
+    <div class="try">    
+          <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://www.xtees.com/uploads/products/images/primary/grey-melange-plain-round-neck-t-shirt_1532191247.jpg" >
+                </div>
+                <div class="carousel-item">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.U6nypwIrPc6kgUXB2KG5ewHaIg&pid=Api&P=0&h=180" alt="Image 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.LI4MkXtLwqvW_EVspEyFLgHaJl&pid=Api&P=0&h=180" alt="Image 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.AcDLB6zxaa1Kftk2lmgd1AHaIh&pid=Api&P=0&h=180" alt="Image 5">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.dRN9r2Wn8TUrv6J_a_-3eQHaHa&pid=Api&P=0&h=180" alt="Image 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://sp.yimg.com/ib/th?id=OPA.8nmoPKSCk8%2bTYQ474C474&o=5&pid=21.1&w=&h=" alt="Image 6">
+                </div>
+                <!-- Add more carousel items as needed -->
+            </div>
+        
+            <button id="prevBtn" onclick="prevSlide()">&lt;</button>
+            <button id="nextBtn" onclick="nextSlide()">&gt;</button>
+        </div>
+    </div>
+
+        <!-- <div class="outfit">  -->
+          <!-- Drop area for arranging items -->
+         <!-- </div> -->
+        
+    <div class="try">    
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <div id="dropArea" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p>Drop Image Here</p>
+        </div>
+    </div>
+<br>
+<br>
+
+
+
+        <!-- <div class="outfit2"> -->
+          <!-- Drop area for arranging items -->
+        <!-- </div> -->
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <div id="dropArea2" ondrop="drop2(event)" ondragover="allowDrop(event)">
+            <p>Drop Image Here</p>
+        </div>
+
+        <br>
+<br>
+
+
+
+
+
+        <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <img src="https://img1.hotstarext.com/image/upload/f_auto,t_hcdl/sources/r1/cms/prod/1478/1091478-h-8c7691902e12" alt="Image 1">
+              </div>
+              <div class="carousel-item">
+                  <img src="https://img1.hotstarext.com/image/upload/f_auto,t_hcdl/sources/r1/cms/prod/8061/1038061-h-e5e56724b1cf" alt="Image 2">
+              </div>
+              <div class="carousel-item">
+                  <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_2_5x/sources/r1/cms/prod/7707/1037707-h-f3be0f51a67f" alt="Image 3">
+              </div>
+              <!-- Add more carousel items as needed -->
+          </div>
+      
+          <button id="prevBtn" onclick="prevSlide()">&lt;</button>
+          <button id="nextBtn" onclick="nextSlide()">&gt;</button>
+      </div>
+
+
+  
+        <!-- <div class="wardrobe-slideshow"> -->
+          <!-- <div class="slideshow-container"> -->
+            <!-- Slides for clothing items -->
+            <!-- <div class="slide"> -->
+              <!-- Clothing item content -->
+              <!-- <img src="https://img1.hotstarext.com/image/upload/f_auto,t_hcdl/sources/r1/cms/prod/1478/1091478-h-8c7691902e12" alt="Item 1"> -->
+            <!-- </div> -->
+            <!-- <div class="slide"> -->
+              <!-- Clothing item content -->
+              <!-- <img src="https://img1.hotstarext.com/image/upload/f_auto,t_hcdl/sources/r1/cms/prod/8061/1038061-h-e5e56724b1cf" alt="Item 2"> -->
+            <!-- </div> -->
+            <!-- Add more slides here -->
+            <!-- <div class="slide"> -->
+              <!-- Clothing item content -->
+              <!-- <img src="https://img1.hotstarext.com/image/upload/f_auto,t_hcdl/sources/r1/cms/prod/8061/1038061-h-e5e56724b1cf" alt="Item 2"> -->
+            <!-- </div> -->
+            <!-- <div class="slide"> -->
+              <!-- Clothing item content -->
+              <!-- <img src="https://img1.hotstarext.com/image/upload/f_auto,t_hcdl/sources/r1/cms/prod/8061/1038061-h-e5e56724b1cf" alt="Item 2"> -->
+            <!-- </div> -->
+            <!-- <button id="collapseButton">Collapse Slideshow</button> -->
+          <!-- </div> -->
+        <!-- </div> -->
+
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <script>
+            var currentSlide = 0;
+        
+            function allowDrop(event) {
+                event.preventDefault();
+            }
+        
+            function drop(event) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("text");
+                var dropArea = document.getElementById("dropArea");
+                var img = new Image();
+                img.src = data;
+                dropArea.innerHTML = '';
+                dropArea.appendChild(img);
+            }
+        
+            function showSlide(index) {
+                currentSlide = index;
+                $('.carousel').carousel(index);
+            }
+        
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % $('.carousel-inner .carousel-item').length;
+                showSlide(currentSlide);
+            }
+        
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + $('.carousel-inner .carousel-item').length) % $('.carousel-inner .carousel-item').length;
+                showSlide(currentSlide);
+            }
+        </script>
+        
+        
+
+
+
+           
+         
+        
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+  const slides = document.querySelectorAll('.slide');
+  const outfit = document.querySelector('.outfit');
+  const outfit2 = document.querySelector('.outfit2');
+
+  const collapseButton = document.getElementById('collapseButton');
+  const slideshow = document.querySelector('.slideshow');
+
+  collapseButton.addEventListener('click', function () {
+    slideshow.style.display = 'none'; // Hide the slideshow on button click
+    // Additional logic like pausing the slideshow timer, if applicable
+  });
+
+
+
+  slides.forEach(slide => {
+    slide.addEventListener('dragstart', dragStart);
+  });
+
+  outfit.addEventListener('dragover', dragOver);
+  outfit.addEventListener('drop', dropItem);
+
+  outfit2.addEventListener('dragover', dragOver);
+  outfit2.addEventListener('drop', dropItem);
+
+  function dragStart(e) {
+    const imgSrc = e.target.querySelector('img').src; // Get the image source
+    e.dataTransfer.setData('text/plain', imgSrc); // Set image source URL as plain text
+  }
+
+  function dragOver(e) {
+    e.preventDefault();
+  }
+
+  function dropItem(e) {
+    e.preventDefault();
+    const imgSrc = e.dataTransfer.getData('text/plain'); // Get image source URL
+    const newImage = new Image();
+    newImage.src = imgSrc; // Create an image element with the source URL
+    newImage.classList.add('item'); // Apply any necessary styling or class
+    this.appendChild(newImage); // Append the image to the outfit area
+  }
+});
+
+</script>
+<!-- <script src="server.js"></script> -->
+<script>
+// Open (or create) a database
+const request = indexedDB.open('myDatabase', 1);
+
+// Create an object store within the database
+request.onupgradeneeded = function(event) {
+    const db = event.target.result;
+    const objectStore = db.createObjectStore('images', { keyPath: 'id', autoIncrement:true });
+};
+
+// Save an image to the object store
+function saveImage(imageUrl) {
+    const db = request.result;
+    const transaction = db.transaction(['images'], 'readwrite');
+    const objectStore = transaction.objectStore('images');
+    objectStore.add({ url: imageUrl });
+}
+</script>
+
+    
+
+<script>
+  var currentSlide = 0;
+
+  function allowDrop(event) {
+      event.preventDefault();
+  }
+
+  function drop(event) {
+      event.preventDefault();
+      var data = event.dataTransfer.getData("text");
+      var dropArea = document.getElementById("dropArea");
+      var img = new Image();
+      img.src = data;
+      dropArea.innerHTML = '';
+      dropArea.appendChild(img);
+  }
+
+  function drop2(event) {
+      event.preventDefault();
+      var data = event.dataTransfer.getData("text");
+      var dropArea = document.getElementById("dropArea2");
+      var img1= new Image();
+      img1.src = data;
+      dropArea2.innerHTML = '';
+      dropArea2.appendChild(img1);
+  }
+
+  function showSlide(index) {
+      currentSlide = index;
+      $('.carousel').carousel(index);
+  }
+
+  function nextSlide() {
+      currentSlide = (currentSlide + 1) % $('.carousel-inner .carousel-item').length;
+      showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+      currentSlide = (currentSlide - 1 + $('.carousel-inner .carousel-item').length) % $('.carousel-inner .carousel-item').length;
+      showSlide(currentSlide);
+  }
+</script>
+
+        </div>
+        
+        </nav>
+        
+        
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

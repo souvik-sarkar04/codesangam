@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>Drag and Drop Image Carousel</title>
+    <style>
+        /* Add your custom styles here */
+        #imageCarousel {
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel-inner img {
+            margin-left: 25%;
+            width: 336px;
+        
+            height: auto;
+            cursor: grab;
+        }
+
+        #dropArea {
+            width: 20%;
+            height: auto;
+            border: 2px dashed #0e0d0d;
+            margin-top: 26px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 33%;
+        }
+        #dropArea2 {
+            width: 20%;
+            height: auto;
+            border: 2px dashed #0e0d0d;
+            margin-top: 26px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 33%;
+        }
+
+        #dropArea img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        #prevBtn,
+        #nextBtn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px;
+            z-index: 2;
+        }
+
+        #prevBtn {
+            left: 10px;
+        }
+
+        #nextBtn {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="imageCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/t/e/0/l-st-theboys-black-smartees-original-imagnqszzzzyuzru.jpeg?q=70" alt="Image 1">
+        </div>
+        <div class="carousel-item">
+            <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/m/o/t/l-st1-vebnor-original-imagmsyxhvkrfjgz.jpeg?q=70" alt="Image 2">
+        </div>
+        <div class="carousel-item">
+            <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/1/h/6/xxl-ts39-vebnor-original-imagt928mhuyyfsc.jpeg?q=70" alt="Image 3">
+        </div>
+        <!-- Add more carousel items as needed -->
+    </div>
+
+    <button id="prevBtn" onclick="prevSlide()">&lt;</button>
+    <button id="nextBtn" onclick="nextSlide()">&gt;</button>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<div id="dropArea" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <p>Drop Image Here</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    var currentSlide = 0;
+
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drop(event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        var dropArea = document.getElementById("dropArea");
+        var img = new Image();
+        img.src = data;
+        dropArea.innerHTML = '';
+        dropArea.appendChild(img);
+    }
+
+    function showSlide(index) {
+        currentSlide = index;
+        $('.carousel').carousel(index);
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % $('.carousel-inner .carousel-item').length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + $('.carousel-inner .carousel-item').length) % $('.carousel-inner .carousel-item').length;
+        showSlide(currentSlide);
+    }
+</script>
+
+
+<!-- 
+
+<div id="imageCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/t/e/0/l-st-theboys-black-smartees-original-imagnqszzzzyuzru.jpeg?q=70" alt="Image 1">
+        </div>
+        <div class="carousel-item">
+            <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/m/o/t/l-st1-vebnor-original-imagmsyxhvkrfjgz.jpeg?q=70" alt="Image 2">
+        </div>
+        <div class="carousel-item">
+            <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/1/h/6/xxl-ts39-vebnor-original-imagt928mhuyyfsc.jpeg?q=70" alt="Image 3">
+        </div>
+        <!-- Add more carousel items as needed -->
+    <!-- </div>
+
+    <button id="prevBtn" onclick="prevSlide()">&lt;</button>
+    <button id="nextBtn" onclick="nextSlide()">&gt;</button>
+</div>
+
+<div id="dropArea2" ondrop="drop(event,'droparea2')" ondragover="allowDrop(event)">
+    <p>Drop Image Here</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    var currentSlide = 0;
+
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drop(event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        var dropArea = document.getElementById("dropArea2");
+        var img = new Image();
+        img.src = data;
+        dropArea.innerHTML = '';
+        dropArea.appendChild(img);
+    }
+
+    function showSlide(index) {
+        currentSlide = index;
+        $('.carousel').carousel(index);
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 2) % $('.carousel-inner .carousel-item').length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + $('.carousel-inner .carousel-item').length) % $('.carousel-inner .carousel-item').length;
+        showSlide(currentSlide);
+    }
+</script> --> 
+
+</body>
+</html>

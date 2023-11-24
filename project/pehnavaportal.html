@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body
+            {
+                background-image: url('bg.jpg');
+                margin: 0;
+                padding: 0;
+            }
+            .main
+            {
+                width:100%;
+                height:100%;
+                text-align: center;
+                background-color:rgba(0,0,0,0.6);
+                position:fixed;
+                margin:0;
+                padding:0;
+            }
+            .main1
+            {
+                background-color: #f0dbc2;
+                width:90vw;
+                height:90vh;
+                margin-left:4.9vw;
+                margin-top:5vh;
+                border-radius: 0;
+                overflow-y:scroll;
+
+            }
+           .navbutton
+           {
+              position:absolute;
+              right:8vw;
+              top:7vh;
+              cursor:pointer;
+           }
+            .pg1a
+            {
+                float:left;
+                margin-left:5vw;
+                margin-top:10vh;
+                width:35%;
+                height:68vh;
+                background-color:#f0dbc2;
+                border-style:solid;
+                border-width: 5px;
+                border-color: #e2830f;
+                padding:0;
+                overflow-x: hidden;
+                position: relative;
+               
+            }
+            /* .pg1aa
+            {
+                width:100%;
+                height:100%;
+                text-align: center;
+                background-color:rgba(0,0,0,0.6);
+                margin:0;
+                padding:0;
+
+            } */
+            .pg1b
+            {
+                float:left;
+                margin-left:11vw;
+                margin-top:10vh;
+                width:35%;
+                height:68vh;
+                background-color:#f0dbc2;
+                box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.5);
+                padding:0;
+                overflow-x: hidden;
+                position: relative;
+
+            }
+            .mySlides
+            {
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%,-50%);
+                color:black;
+                text-align: center;
+                font-size: 2.5vh;;
+            }
+            .pg1::after
+            {
+                content: "";
+                display: table;
+                clear:both;
+            }
+            .i
+            {
+                height:30vh;
+                margin-top: 15vh;
+            }
+            @media (max-width:1500px) {
+                .pg1a,.pg1b{
+                    width:80%;
+                    height:34vh;
+                    margin-left:10%;
+                }
+                .i
+                {
+                    margin-top: 0vh;
+                }
+                
+            }
+            @media (max-width:500px){
+                .i
+                {
+                   
+                    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+                    width:70vw;
+                    height:auto;
+
+                }
+            }
+           .secondpage
+           {
+            width:100%;
+            height:120vh;
+            border-style:solid;
+            border-width: 5px;
+                border-color: #e2830f;
+           }
+        /*the code for dropdown(second page)*/
+        .dropbtn {
+  background-color: #e2830f;
+  color: white;
+  padding: 3vw;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin-left: -44.5vw;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left:-44vw;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+
+
+
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+.dropdown:hover .dropbtn {
+  background-color:#f0dbc2;
+  color:black;
+  border-top-style: none;
+  border-right-style: solid;
+  border-left-style: solid;
+  border-bottom-style: solid;
+  border-width: 4px;
+  border-color: #e2830f;
+  transition: 0.5s;
+}
+/*the code for the main wardrobe page*/
+#container1
+{
+    background-color: rgba(0,0,0,0);
+    height: 38vh;
+    border-style:solid;
+    border-width: 3px;
+    border-color: #e2830f;
+    width:40vh;
+    margin:auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+#container2
+{
+    height:50vh;
+    background-color: rgba(0,0,0,0);
+    border-top-style: none;
+    border-bottom-style:solid;
+    border-right-style:solid;
+    border-left-style:solid;
+    border-width: 3px;
+    border-color: #e2830f;
+    width:40vh;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+/*the code for wardrobe-selector*/
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+
+
+
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  color: white; /* Set the text color to white */
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+/*the code for the content of the wardrobe selector*/
+/*(the 3 divs aligned side by side)*/
+#a
+{
+    float:left;
+    width:100%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #e2830f;
+    min-height:300px;
+    display: flex;
+      align-items: center;
+      justify-content: center; 
+}
+#b
+{
+    float:left;
+    width:100%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #e2830f;
+    min-height:300px;
+    display: flex;
+      align-items: center;
+      justify-content: center; 
+}
+#c
+{
+    float:left;
+    width:100%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #e2830f;
+    min-height:300px;
+    display: flex;
+      align-items: center;
+      justify-content: center; 
+}
+#row::after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+@media(max-width:600px)
+{
+    #a,#b,#c
+    {
+        width: 100%;
+        height: auto;
+    }
+}
+#row img
+{
+    max-width: 40%;
+      height: auto;
+      display: block;
+      margin:auto;
+}
+ /*the code for display image*/  
+ .selected-image {
+      width:auto;
+      max-width: 40vh;
+      height: 100%;
+      object-fit: cover;
+      margin: auto;
+      
+
+    }
+    
+   </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="main1">
+
+<!--here i am writing the code for the navigation button-->
+<span class="navbutton" onclick="openNav('navigation_menu')"><i class="material-icons" style="font-size:6vh;color: #e2830f;">menu</i></span>
+<div id="navigation_menu" style="display:none;">
+  <a href="#sp">Wardrobe</a>
+  <a href="./my.html">Home</a>
+  <a href="./aboutus.html">About Us</a>
+</div>
+<section class="pg1">
+<div class="pg1b">
+    <div class="mySlides w3-animate-fading"  style="width:100%;"><img src="logo.png" style="width:100%;"></div>
+    <div class="mySlides w3-animate-fading"  style="width:100%;">"Discover fashion redefined. Welcome to PehnavaPortal, where your virtual wardrobe awaits."</div>
+    <div class="mySlides w3-animate-fading"  style="width:100%;">"At PehnavaPortal, we believe that fashion is an instant language. Welcome to a place where your wardrobe speaks volumes."</div>
+    <div class="mySlides w3-animate-fading"  style="width:100%;">"Fashion is an expression of your personality, and here at PehnavaPortal, we celebrate the uniqueness in every style."</div>
+    
+  
+</div>
+<div class="pg1a">
+    <div class="pg1aa"><img class ="i" src="largeimage.png"></div>
+    
+</div>
+</section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="secondpage" id="sp">
+    <div class="dropdown">
+        <button class="dropbtn">Virtual wardrobe</button>
+        <div class="dropdown-content">
+        <span onclick="openNav('uppers')"><a href="#" >Elegant Uppers</a></span>
+        <span onclick="openNav('lowers')"><a href="#" >Chic Lowers</a></span>
+        </div>
+      </div>
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content" id="overlayContent">
+          <!-- Content will be dynamically added here -->
+        </div>
+      </div>
+      <div id="uppers" style="display:none;">
+        
+        <section id="row">
+          <div style="font-size: 3vh;border-style: solid;border-color:white ;border-width: 2px;"><p id="overlay-uppers-mens-heading">-Men's uppers-</p></div>
+       <div id=a><img src="tshirt1.webp" onclick="displaySelectedImage('tshirt1.webp', 'container1')"></div>
+       <div id=b><img src="tshirt2.png"onclick="displaySelectedImage('tshirt2.png', 'container1')"></div>
+       <div id=c><img src="./t1.jpeg"onclick="displaySelectedImage('./t1.jpeg', 'container1')"></div>
+       <div id=a><img src="./t2.jpeg"onclick="displaySelectedImage('./t2.jpeg', 'container1')"></div>
+       <div id=b><img src="./t3.jpeg"onclick="displaySelectedImage('./t3.jpeg', 'container1')"></div>
+       <div id=c><img src="./t4.jpeg"onclick="displaySelectedImage('./t4.jpeg', 'container1')"></div>
+       <div id=a><img src="./t5.jpeg" onclick="displaySelectedImage('./t5.jpeg', 'container1')"></div>
+       <div id=b><img src="./t6.jpeg"onclick="displaySelectedImage('./t6.jpeg', 'container1')"></div>
+       <div id=c><img src="./t7.jpeg"onclick="displaySelectedImage('./t7.jpeg', 'container1')"></div>
+       <div id=a><img src="./t8.jpeg"onclick="displaySelectedImage('./t8.jpeg', 'container1')"></div>
+       <div id=b><img src="./t9.jpeg"onclick="displaySelectedImage('./t9.jpeg', 'container1')"></div>
+       <div id=c><img src="./t10.jpeg"onclick="displaySelectedImage('./t10.jpeg', 'container1')"></div>
+    </section>
+       
+      </div>
+      
+      <div id="lowers" style="display:none;">
+        <section id="row">
+          <div style="font-size: 3vh;border-style: solid;border-color:white ;border-width: 2px;"><p id="overlay-uppers-mens-heading">-Men's lowers-</p></div>
+            <div id=a><img src="j1.jpeg" onclick="displaySelectedImage('j1.png', 'container2')"></div>
+            <div id=b><img src="j2.jpeg" onclick="displaySelectedImage('j2.jpeg', 'container2')"></div>
+            <div id=c><img src="j3.jpeg" onclick="displaySelectedImage('j3.jpeg', 'container2')"></div>
+            <div id=a><img src="j4.jpeg" onclick="displaySelectedImage('j4.jpeg', 'container2')"></div>
+            <div id=b><img src="j5.jpeg" onclick="displaySelectedImage('j5.jpeg', 'container2')"></div>
+            <div id=c><img src="j6.jpeg" onclick="displaySelectedImage('j6.jpeg', 'container2')"></div>
+         </section>
+      </div>
+      
+      <div id="clientsContent" style="display:none;">
+        <h1>Our Clients</h1>
+        <p>This is the Clients content.</p>
+      </div>
+      <div id="container1" class="image-container">
+        <img id="selected-image1" class="selected-image" src="#" alt="YOUR T'S WILL APPEAR HERE">
+      </div>
+      <div id="container2" class="image-container">
+        <img id="selected-image2" class="selected-image" src="#" alt="YOUR PANTS APPEAR HERE">
+      </div>
+            </div>
+        </div>
+        
+
+
+
+
+
+        <script>
+            
+            var myIndex = 0;
+            carousel();
+            
+            function carousel() {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+              }
+              myIndex++;
+              if (myIndex > x.length) {myIndex = 1}    
+              x[myIndex-1].style.display = "block";  
+              setTimeout(carousel, 4000);    
+            }
+            </script>
+
+
+
+            <!-- The script for the overlay wardrobe selector -->
+            <script>function openNav(contentId) {
+                // Get the content element by ID
+                var content = document.getElementById(contentId);
+                
+                // Set the inner HTML of the overlay content
+                document.getElementById("overlayContent").innerHTML = content.innerHTML;
+              
+                // Open the overlay
+                var overlayWidth = window.innerWidth < 800 ? "100%" : "33.33%";
+                document.getElementById("myNav").style.width = overlayWidth;;
+              }
+              
+              
+              function closeNav() {
+                document.getElementById("myNav").style.width = "0%";
+              }   </script>
+           <script>
+            //script for select-image-display function
+            function displaySelectedImage(imageSource, containerId) {
+              var selectedImage = document.getElementById('selected-image' + containerId.charAt(containerId.length - 1));
+              var imageContainer = document.getElementById(containerId);
+        
+              selectedImage.src = imageSource;
+              imageContainer.style.display = 'block'; // Show the container
+            }
+          </script>
+            
+            
+    </body>
+</html>
